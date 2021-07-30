@@ -7,11 +7,13 @@ import {
   Dimensions,
   ScrollView,
   TouchableOpacity,
-  Animated
+  // Animated,
+  LogBox
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 import CardFlip from 'react-native-card-flip';
-import AnimatedEllipsis from 'react-native-animated-ellipsis';
+// import AnimatedEllipsis from 'react-native-animated-ellipsis';
 import Color from '../../consts/colors';
 import { C1, C2, C3, C4, C5, C6, C7 }  from '../../consts/data';
 const width = Dimensions.get('window').width / 2 - 20;
@@ -20,6 +22,10 @@ const height = Dimensions.get('window').height;
 
 export default class List extends React.Component {
   
+  componentDidMount() {
+    LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
+  }
+
   render() {
 
     const { cag } = this.props.route.params;
@@ -36,20 +42,8 @@ export default class List extends React.Component {
               C1.map((C1, index) => 
               <View style={stylesList.item}  key={ index }>
               <CardFlip style={stylesList.card}  ref={ (card) => this['card' + index] = card }>
-              <TouchableOpacity style={[stylesList.card]}
-                onPress={() => {
-                  this['card' + index].flip();
-                  setTimeout(function(){
-                    navigate('Detail', {
-                      id: C1.id,
-                      name: C1.name,
-                      status: C1.status,
-                      like: C1.like,
-                      img: C1.img,
-                      about: C1.about,
-                    });
-                  }, 500);
-                }}
+              <View style={[stylesList.card]}
+                
               >
                  
                 <View
@@ -68,11 +62,23 @@ export default class List extends React.Component {
                     <Text style={stylesList.textStyle}>
                       {C1.name}
                     </Text>
-                    <View style={stylesList.appButtonContainer}>
-                      <Text style={stylesList.appButtonText}>Play Now</Text>
-                    </View>
-                    <View style={stylesList.appButtonContainer2}>
-                      <Text style={stylesList.appButtonText2}>Schedule this</Text>
+                    <View style={{flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start'}}>
+                      <TouchableOpacity style={stylesList.appButtonContainer} 
+                        onPress={() => {
+                          this['card' + index].flip();
+                        }}>
+                        <Text style={stylesList.appButtonText}>Play Now</Text>
+                      </TouchableOpacity>
+                      <View style={stylesList.appButtonContainer2}>
+                        <Text style={stylesList.appButtonText2}>
+                        <Icon
+                        name="bookmark"
+                        backgroundColor="#3b5998"
+                        // onPress={this.loginWithFacebook}
+                        >
+                        </Icon>
+                        </Text>
+                      </View>
                     </View>
                   </View>
 
@@ -89,7 +95,7 @@ export default class List extends React.Component {
                   </Text>
                  
                 </View>
-              </TouchableOpacity>
+              </View>
               <TouchableOpacity style={[stylesList.card]}
                 onPress={() => {
                   this['card' + index].flip();
@@ -114,7 +120,7 @@ export default class List extends React.Component {
                     <Text style={{fontSize: 13, color: "white", textAlign: 'center'}}>
                       {C1.status}
                     </Text>
-                    <AnimatedEllipsis numberOfDots={5}
+                    {/* <AnimatedEllipsis numberOfDots={5}
                                       minOpacity={0.4}
                                       animationDelay={200}
                                       style={{
@@ -124,7 +130,7 @@ export default class List extends React.Component {
                                       }}
 
                                      
-                    />
+                    /> */}
                   </View>
 
                 </View>
@@ -154,16 +160,7 @@ export default class List extends React.Component {
             <TouchableOpacity style={[stylesList.card]}
               onPress={() => {
                 this['card' + index].flip();
-                setTimeout(function(){
-                  navigate('Detail', {
-                    id: C2.id,
-                    name: C2.name,
-                    status: C2.status,
-                    like: C2.like,
-                    img: C2.img,
-                    about: C2.about,
-                  });
-                }, 500);
+                
               }}
             >
               
@@ -254,16 +251,7 @@ export default class List extends React.Component {
             <TouchableOpacity style={[stylesList.card]}
               onPress={() => {
                 this['card' + index].flip();
-                setTimeout(function(){
-                  navigate('Detail', {
-                    id: C3.id,
-                    name: C3.name,
-                    status: C3.status,
-                    like: C3.like,
-                    img: C3.img,
-                    about: C3.about,
-                  });
-                }, 500);
+                
               }}
             >
               
@@ -354,16 +342,7 @@ export default class List extends React.Component {
             <TouchableOpacity style={[stylesList.card]}
               onPress={() => {
                 this['card' + index].flip();
-                setTimeout(function(){
-                  navigate('Detail', {
-                    id: C4.id,
-                    name: C4.name,
-                    status: C4.status,
-                    like: C4.like,
-                    img: C4.img,
-                    about: C4.about,
-                  });
-                }, 500);
+                
               }}
             >
               
@@ -555,16 +534,7 @@ export default class List extends React.Component {
             <TouchableOpacity style={[stylesList.card]}
               onPress={() => {
                 this['card' + index].flip();
-                setTimeout(function(){
-                  navigate('Detail', {
-                    id: C6.id,
-                    name: C6.name,
-                    status: C6.status,
-                    like: C6.like,
-                    img: C6.img,
-                    about: C6.about,
-                  });
-                }, 500);
+                
               }}
             >
               
@@ -870,11 +840,11 @@ const stylesList = StyleSheet.create({
   appButtonContainer2: {
     zIndex: 2,
     elevation: 8,
-    backgroundColor: "#667e99",
+    backgroundColor: "white",
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 12,
-    marginTop: 10
+    marginLeft: 5,
   },
   appButtonText: {
     fontSize: 12,
@@ -886,6 +856,7 @@ const stylesList = StyleSheet.create({
   appButtonText2: {
     fontSize: 12,
     color: "black",
+    padding: 1.7,
     alignSelf: "center",
     textTransform: "uppercase"
   }

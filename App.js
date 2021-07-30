@@ -7,7 +7,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 import Menu from './src/view/screens/Menu.js';
-import Detail from './src/view/screens/Detail.js';
 import List from './src/view/screens/List.js';
 import Scheduled from './src/view/screens/Scheduled.js';
 
@@ -27,21 +26,6 @@ export default class App extends React.Component {
             component={Menu}
             options={{
               title: 'DEO SOUNDS MENU', //Set Header Title
-              headerStyle: {
-                backgroundColor: 'black', //Set Header color
-              },
-              headerTintColor: 'lightgray', //Set Header text color
-              headerTitleStyle: {
-                fontWeight: 'bold', //Set Header text style
-                color: '#667e99'
-              },
-            }}
-          />
-          <Stack.Screen
-            name="Detail"
-            component={Detail}
-            options={{
-              title: '', //Set Header Title
               headerStyle: {
                 backgroundColor: 'black', //Set Header color
               },
