@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "DEO-sound-app",
+    "slug": "DEO-sound-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/menu.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.DEO.appsound",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.DEO.appsound",
+      "versionCode": 1
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
