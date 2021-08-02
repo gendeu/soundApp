@@ -24,7 +24,8 @@ const height = Dimensions.get('window').height;
 
 export default class Menu extends React.Component {
   state = {
-    fadeAnimation: new Animated.Value(0)
+    fadeAnimation: new Animated.Value(0),
+    play: true
   };
   componentDidMount() {
     Animated.timing(this.state.fadeAnimation, {
@@ -51,6 +52,9 @@ export default class Menu extends React.Component {
             this.props.navigation.navigate('List', {
               cag: catergories[i].cag,
               name: catergories[i].name
+            });
+            this.setState({
+              play: false
             });
           }}
         >
@@ -112,7 +116,7 @@ export default class Menu extends React.Component {
                       volume={1.0}
                       isMuted={false}
                       resizeMode="contain"
-                      shouldPlay
+                      shouldPlay={this.state.play}
                       // useNativeControls
                       isLooping
                       style={styles.ImageClassBgWide}
@@ -147,6 +151,9 @@ export default class Menu extends React.Component {
             onPress={() => {
               this.props.navigation.navigate('List', {
                 cag: catergories[i].cag,
+              });
+              this.setState({
+                play: false
               });
             }}
           >
