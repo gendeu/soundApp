@@ -71,7 +71,7 @@ export const C1 = [
     name: '\n C',
     status: 'Now Playing',
     like: true,
-    img: require('../assets/victory.jpg'),
+    url: require('../assets/Plain/C.mp3'),
     about:
       'Exfoliate your facial skin with our Deep Cleansing treatment to remove dirt and oil using enriched Dead Sea minerals to give your skin a brighter, more radiant-looking complexion.',
   },
@@ -81,7 +81,7 @@ export const C1 = [
     name: '\n D',
     status: 'Now Playing',
     like: false,
-    img: require('../assets/victory.jpg'),
+    url: require('../assets/Plain/C.mp3'),
     about:
       'The Natural Botox is a non-surgical treatment, enriched with antioxidant Vitamins A, C, and E, with Dunaliella Seaweed Extract to soften and nourish the skin, for a younger and more refined look.',
   },
@@ -90,7 +90,7 @@ export const C1 = [
     name: '\n E',
     status: 'Now Playing',
     like: false,
-    img: require('../assets/victory.jpg'),
+    url: require('../assets/Plain/C.mp3'),
     about:
       'Red & Infrared light of Perfectio X gently delivers precise dosage of energy to the skin to produce collagen fibers and elastin, while gently erasing signs of aging in all three layers of skin.',
   },
@@ -99,7 +99,7 @@ export const C1 = [
     name: '\n F',
     status: 'Now Playing',
     like: true,
-    img: require('../assets/victory.jpg'),
+    url: require('../assets/Plain/C.mp3'),
     about:
       '24K Gold stimulates cellular growth of the epidermis, regenerating firm skin cells. It also locks in moisture, increases the collagen level in the skin and prevents the breakdown of elastin.',
   },
@@ -108,7 +108,7 @@ export const C1 = [
     name: '\n G',
     status: 'Now Playing',
     like: false,
-    img: require('../assets/victory.jpg'),
+    url: require('../assets/Plain/C.mp3'),
     about:
       'Red & Infrared light of Perfectio X gently delivers precise dosage of energy to the skin to produce collagen fibers and elastin, while gently erasing signs of aging in all three layers of skin.',
   },
@@ -117,7 +117,7 @@ export const C1 = [
     name: '\n A',
     status: 'Now Playing',
     like: false,
-    img: require('../assets/victory.jpg'),
+    url: require('../assets/Plain/C.mp3'),
     about:
       'Red & Infrared light of Perfectio X gently delivers precise dosage of energy to the skin to produce collagen fibers and elastin, while gently erasing signs of aging in all three layers of skin.',
   },
@@ -126,7 +126,7 @@ export const C1 = [
     name: '\n B',
     status: 'Now Playing',
     like: false,
-    img: require('../assets/victory.jpg'),
+    url: require('../assets/Plain/C.mp3'),
     about:
       'Red & Infrared light of Perfectio X gently delivers precise dosage of energy to the skin to produce collagen fibers and elastin, while gently erasing signs of aging in all three layers of skin.',
   },
