@@ -23,10 +23,8 @@ const height = Dimensions.get('window').height;
 export default function List({route, navigation}) {
   const { cag } = route.params;
 
-  const video1 = React.useRef(null);
-  const [status1, setStatus1] = React.useState({});
-  const video2 = React.useRef(null);
-  const [status2, setStatus2] = React.useState({});
+  const video = React.useRef(null);
+  const [status, setStatus] = React.useState({});
 
   return (
     <View style={stylesList.container}>
@@ -63,6 +61,7 @@ export default function List({route, navigation}) {
                   <TouchableOpacity style={stylesList.appButtonContainer} 
                     onPress={() => {
                       this['card' + index].flip();
+                      this['video' + index].playAsync();
                     }}>
                     <Text style={stylesList.appButtonText}>Play Now</Text>
                   </TouchableOpacity>
@@ -96,6 +95,7 @@ export default function List({route, navigation}) {
           <TouchableOpacity style={[stylesList.card]}
             onPress={() => {
               this['card' + index].flip();
+              this['video' + index].pauseAsync();
             }}
           >
               
@@ -118,21 +118,13 @@ export default function List({route, navigation}) {
                   {C1.status}
                 </Text>
                 <Video
-                  ref={video1}
-                  source={require('../../assets/Plain/C.mp4')}
+                  ref={ (video) => this['video' + index] = video }
+                  source={C1.url}
                   useNativeControls
                   resizeMode="contain"
                   isLooping
-                  onPlaybackStatusUpdate={status1 => setStatus1(() => status1)}
+                  onPlaybackStatusUpdate={status => setStatus(() => status)}
                 />
-                <View>
-                  <Button
-                    title={status1.isPlaying ? 'Pause' : 'Play'}
-                    onPress={() =>
-                      status1.isPlaying ? video1.current.pauseAsync() : video1.current.playAsync()
-                    }
-                  />
-                </View>
 
               </View>
 
