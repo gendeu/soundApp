@@ -30,12 +30,22 @@ export default function List() {
     console.log('Stopped Sound');
     await sound.stopAsync(); 
   }
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync(); }
+      : undefined;
+  }, [sound]);
+
+
   
   async function playSound2() {
     console.log('Loading Sound');
 
     const { sound } = await Audio.Sound.createAsync(
-       require('../../assets/Plain/C.mp3')
+       require('../../assets/Victory/V.mp3')
     );
     setSound(sound);
 
@@ -52,16 +62,17 @@ export default function List() {
     return sound
       ? () => {
           console.log('Unloading Sound');
-          sound.unloadAsync(); }
+          sound.unloadAsync(); 
+        }
       : undefined;
   }, [sound]);
 
   return (
     <View style={styles.container}>
-      <Button title="Play Sound" onPress={playSound1} />
-      <Button title="Stop Sound" onPress={stopSound1} />
-      <Button title="Play Sound" onPress={playSound2} />
-      <Button title="Stop Sound" onPress={stopSound2} />
+      <Button title="Play Sound" onPress = {() => {playSound1()} } />
+      <Button title="Stop Sound" onPress = {() => {stopSound1()} } />
+      <Button title="Play Sound" onPress = {() => {playSound2()} } />
+      <Button title="Stop Sound" onPress = {() => {stopSound2()} } />
     </View>
   );
 }
